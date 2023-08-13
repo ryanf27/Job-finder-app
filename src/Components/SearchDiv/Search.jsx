@@ -4,35 +4,47 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import { useState } from "react";
 
-const Search = ({
-  jobSearchHandler,
-  companySearchHandler,
-  locationSearchHandler,
-}) => {
-  const [searchByJob, setSearchByJob] = useState("");
-  const [searchByCompany, setSearchByCompany] = useState("");
-  const [searchByLocation, setSearchByLocation] = useState("");
+const Search = ({ searchData }) => {
+  const [searchInputs, setSearchInputs] = useState([
+    {
+      name: "title",
+      value: "",
+    },
+    {
+      name: "company",
+      value: "",
+    },
+    {
+      name: "location",
+      value: "",
+    },
+  ]);
 
-  const onCLickHandler = (e, value) => {
+  const onChangeHandler = (event) => {
+    const { name, value } = event.target;
+    setSearchInputs((prevState) => {
+      const updateState = prevState.map((input) => {
+        if (input.name === name) {
+          input.value = value;
+        }
+        return input;
+      });
+      return updateState;
+    });
+  };
+
+  const clearInput = (e) => {
+    e.target.placeholder = "";
+  };
+
+  const onSubmitHandler = (e) => {
     e.preventDefault();
-    if (e.target.name === "job") {
-      jobSearchHandler(value);
-    } else if (e.target.name === "company") {
-      companySearchHandler(value);
-    } else if (e.target.name === "location") {
-      locationSearchHandler(value);
-    }
+    const filteredData = searchInputs.filter((input) => {
+      return input.value.length > 0;
+    });
+    searchData(filteredData);
   };
 
-  const clearJobInput = () => {
-    setSearchByJob("");
-  };
-  const clearCompanyInput = () => {
-    setSearchByCompany("");
-  };
-  const clearLocationInput = () => {
-    setSearchByLocation("");
-  };
   return (
     <div className="searchDiv grid gap-10 bg-whiteColor rounded-[10px] p-[3rem]">
       <form action="">
@@ -41,67 +53,57 @@ const Search = ({
             <BsSearch className="text-[25px] icon" />
             {/* job */}
             <input
+              name="title"
               type="text"
               className="bg-transparent text-blue-500 focus:outline-none w-[100%]"
               placeholder="Search Job..."
-              value={searchByJob}
-              onChange={(e) => setSearchByJob(e.target.value)}
+              value={searchInputs[0].value}
+              onChange={onChangeHandler}
             />
             <AiOutlineCloseCircle
-              onClick={clearJobInput}
+              onClick={clearInput}
               className="text-[30px] text-[#a6a6a6] hover:text-textColor icon"
             />
-            <button
-              name="job"
-              onClick={() => onCLickHandler(event, searchByJob)}
-            >
-              Submit
-            </button>
           </div>
           {/* company */}
           <div className="flex gap-2 items-center">
             <BsHouseDoor className="text-[25px] icon" />
             <input
+              name="company"
               type="text"
               className="bg-transparent text-blue-500 focus:outline-none w-[100%]"
               placeholder="Search By Company..."
-              value={searchByCompany}
-              onChange={(e) => setSearchByCompany(e.target.value)}
+              value={searchInputs[1].value}
+              onChange={onChangeHandler}
             />
             <AiOutlineCloseCircle
-              onClick={clearCompanyInput}
+              onClick={clearInput}
               className="text-[30px] text-[#a6a6a6] hover:text-textColor icon"
             />
-            <button
-              name="company"
-              onClick={() => onCLickHandler(event, searchByCompany)}
-            >
-              Submit
-            </button>
           </div>
           {/* location */}
           <div className="flex gap-2 items-center">
             <CiLocationOn className="text-[25px] icon" />
             <input
+              name="location"
               type="text"
               className="bg-transparent text-blue-500 focus:outline-none w-[100%]"
               placeholder="Search By Location..."
-              value={searchByLocation}
-              onChange={(e) => setSearchByLocation(e.target.value)}
+              value={searchInputs[2].value}
+              onChange={onChangeHandler}
             />
             <AiOutlineCloseCircle
-              onClick={clearLocationInput}
+              onClick={clearInput}
               className="text-[30px] text-[#a6a6a6] hover:text-textColor icon"
             />
-            <button
-              name="location"
-              onClick={() => onCLickHandler(event, searchByLocation)}
-            >
-              Submit
-            </button>
           </div>
 
-          <button className=" bg-blue2Color h-full p-5 px-10 rounde-[10px] text-white cursor-pointer hover:bg-blue-500">
+          <button
+            onClick={(e) => {
+              onSubmitHandler(e);
+            }}
+            className=" bg-blue2Color h-full p-5 px-10 rounde-[10px] text-white cursor-pointer hover:bg-blue-500"
+          >
             Search
           </button>
         </div>

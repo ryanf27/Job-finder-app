@@ -5,11 +5,15 @@
 @tailwind utilities;
 
 :root {
-  font-family: "Popins", sans-serif;
+  --primary-color: #3f72af;
+  --secondary-color: #dbe2ef;
+  --text-color: #000;
+  --background-color: #fff;
+  --button-color: #112d4e;
 }
 
 body {
-  background: white;
+  background: var(--background-color);
 }
 
 li {
@@ -23,10 +27,10 @@ li:hover::before {
   content: "";
   height: 4px;
   width: 100%;
-  background: #12666b;
+  background: var(--primary-color);
   right: 0;
   bottom: -10px;
-  color: #12666b;
+  color: var(--text-color);
 }
 
 .icon {
@@ -34,5 +38,5 @@ li:hover::before {
 }
 
 .card {
-  background: #bababa;
+  background: var(--background-color);
 }

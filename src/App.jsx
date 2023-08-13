@@ -9,45 +9,20 @@ import Data from "./Data";
 const App = () => {
   const [filteredData, setFilteredData] = useState(Data);
 
-  const jobSearchHandler = (jobQuery) => {
-    const dataFiltered = Data.filter((d) =>
-      d.title.toLowerCase().includes(jobQuery.toLowerCase())
-    );
-    setFilteredData(dataFiltered);
+  const searchData = (inputData) => {
+    const newData = Data.filter((d) => {
+      return inputData.every((el) => {
+        return d[el.name].toLowerCase().includes(el.value.toLowerCase());
+      });
+    });
+    console.log(newData);
+    setFilteredData(newData);
   };
-
-  const companySearchHandler = (companyQuery) => {
-    const dataFiltered = Data.filter((d) =>
-      d.company.toLowerCase().includes(companyQuery.toLowerCase())
-    );
-    setFilteredData(dataFiltered);
-  };
-
-  const locationSearchHandler = (locationQuery) => {
-    const dataFiltered = Data.filter((d) =>
-      d.location.toLowerCase().includes(locationQuery.toLowerCase())
-    );
-    setFilteredData(dataFiltered);
-  };
-
-  // useEffect(() => {
-  //   if (jobSearchHandler) {
-  //     setFilteredData(jobSearchHandler);
-  //   } else if (companySearchHandler) {
-  //     setFilteredData(companySearchHandler);
-  //   } else if (locationSearchHandler) {
-  //     setFilteredData(locationSearchHandler);
-  //   }
-  // }, [filteredData]);
 
   return (
     <div className="w-[85%] m-auto bg-white">
       <Navbar />
-      <Search
-        jobSearchHandler={jobSearchHandler}
-        companySearchHandler={companySearchHandler}
-        locationSearchHandler={locationSearchHandler}
-      />
+      <Search searchData={searchData} />
       <Jobs filteredData={filteredData} />
       <Value />
       <Footer />
