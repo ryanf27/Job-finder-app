@@ -15,7 +15,6 @@ const App = () => {
         return d[el.name].toLowerCase().includes(el.value.toLowerCase());
       });
     });
-    console.log(newData);
     setFilteredData(newData);
   };
 

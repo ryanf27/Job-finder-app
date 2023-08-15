@@ -33,16 +33,32 @@ const Search = ({ searchData }) => {
     });
   };
 
-  const clearInput = (e) => {
-    e.target.placeholder = "";
+  const clearInputJob = () => {
+    setSearchInputs((prevState) => [...prevState, (prevState[0].value = "")]);
+  };
+  const clearInputCompany = () => {
+    setSearchInputs((prevState) => [...prevState, (prevState[1].value = "")]);
+  };
+  const clearInputLocation = () => {
+    setSearchInputs((prevState) => [...prevState, (prevState[2].value = "")]);
   };
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    const filteredData = searchInputs.filter((input) => {
-      return input.value.length > 0;
-    });
-    searchData(filteredData);
+
+    try {
+      const filteredData = searchInputs.filter((input) => {
+        return input.value.trim().length > 0;
+      });
+
+      if (filteredData.length === 0) {
+        alert("Please enter input data");
+        return;
+      }
+      searchData(filteredData);
+    } catch (e) {
+      console.error(`error occured ${e}`);
+    }
   };
 
   return (
@@ -61,7 +77,7 @@ const Search = ({ searchData }) => {
               onChange={onChangeHandler}
             />
             <AiOutlineCloseCircle
-              onClick={clearInput}
+              onClick={clearInputJob}
               className="text-[30px] text-[#a6a6a6] hover:text-textColor icon"
             />
           </div>
@@ -77,7 +93,7 @@ const Search = ({ searchData }) => {
               onChange={onChangeHandler}
             />
             <AiOutlineCloseCircle
-              onClick={clearInput}
+              onClick={clearInputCompany}
               className="text-[30px] text-[#a6a6a6] hover:text-textColor icon"
             />
           </div>
@@ -93,7 +109,7 @@ const Search = ({ searchData }) => {
               onChange={onChangeHandler}
             />
             <AiOutlineCloseCircle
-              onClick={clearInput}
+              onClick={clearInputLocation}
               className="text-[30px] text-[#a6a6a6] hover:text-textColor icon"
             />
           </div>
