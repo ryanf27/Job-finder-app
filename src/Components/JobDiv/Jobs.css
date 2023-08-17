@@ -1,0 +1,101 @@
+@import "../../index.css";
+
+/* Jobs.css */
+.jobsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.card {
+  background-color: var(--background-color);
+  padding: 0.4rem;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  margin: 1rem;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.card:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  height: 60px;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.CardDate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.4;
+  width: 30%;
+  text-align: center;
+}
+
+.cardLocaton {
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+  opacity: 0.4;
+}
+
+.cardDesc {
+  font-size: 0.875rem;
+  color: var(--secondary-text);
+  margin-bottom: 0.5rem;
+  height: 160px;
+}
+.card .cardDesc::before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: var(--text-color);
+  opacity: 0.1;
+  border-radius: 2px;
+  margin-bottom: 4px;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.companyLogo {
+  width: 20%;
+  max-width: 40px;
+  border-radius: 50%;
+}
+
+.companyName {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.cardButton {
+  width: 100%;
+  margin: 4px auto;
+  align-self: center;
+  background: var(--primary-color);
+  color: var(--background-color);
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.cardButton:hover {
+  background-color: var(--button-color);
+}

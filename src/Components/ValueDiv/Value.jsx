@@ -1,75 +1,50 @@
-import logo2 from "../../Assets/img/logo2.png";
-
-const Value = () => {
+import { RiLightbulbLine } from "react-icons/ri";
+import "./Value.css";
+const ValueSection = () => {
   return (
-    <div className="mb-[4rem] mt-[6rem]">
-      <h1 className="text-textColor text-[25px] py-[2rem] pb-[3rem] font-bold w-[400px] block">
-        The Value that holds us true and to account
-      </h1>
+    <div className="valueSection">
+      <h1 className="sectionTitle">Our Values</h1>
 
-      <div className="grid  gap-[10rem] grid-cols-3 items-center">
-        <div className="singleGrid rounded-[10px] hover:bg-[#eeedf7] p-[1.5rem]">
-          <div className="flex items-center gap-3">
-            <div className="imgDiv p-[4px] rounded-[.8rem] bg-inherit-[#dedef8] h-[40px] w-[40px] flex items-center justify-center">
-              <img src={logo2} alt="" className="w-[70%]" />
-            </div>
-
-            <span className="font-semibold text-textColor text-[18px]">
-              Simplicity
-            </span>
+      <div className="valueCards">
+        <div className="valueCard">
+          <div className="valueIcon">
+            <RiLightbulbLine className="icon" />
           </div>
-          <p className="text-[12px] text-textColor opacity-[.7] py-[1rem] font-semibold ">
-            Things being made beautiful simple are at the heart of everyting we
-            do.
+          <h2 className="valueTitle">Simplicity</h2>
+          <p className="valueDescription">
+            We believe in making things beautifully simple, ensuring clarity and
+            ease in everything we do.
           </p>
         </div>
-        <div className="singleGrid rounded-[10px] hover:bg-[#eeedf7] p-[1.5rem]">
-          <div className="flex items-center gap-3">
-            <div className="imgDiv p-[4px] rounded-[.8rem] bg-inherit-[#dedef8] h-[40px] w-[40px] flex items-center justify-center">
-              <img src={logo2} alt="" className="w-[70%]" />
-            </div>
-
-            <span className="font-semibold text-textColor text-[18px]">
-              Simplicity
-            </span>
+        <div className="valueCard">
+          <div className="valueIcon">
+            <RiLightbulbLine className="icon" />
           </div>
-          <p className="text-[12px] text-textColor opacity-[.7] py-[1rem] font-semibold ">
-            Things being made beautiful simple are at the heart of everyting we
-            do.
+          <h2 className="valueTitle">Innovation</h2>
+          <p className="valueDescription">
+            Embracing innovation is at the core of our approach, driving us to
+            find creative solutions and push boundaries.
           </p>
         </div>
-        <div className="singleGrid rounded-[10px] hover:bg-[#eeedf7] p-[1.5rem]">
-          <div className="flex items-center gap-3">
-            <div className="imgDiv p-[4px] rounded-[.8rem] bg-inherit-[#dedef8] h-[40px] w-[40px] flex items-center justify-center">
-              <img src={logo2} alt="" className="w-[70%]" />
-            </div>
-
-            <span className="font-semibold text-textColor text-[18px]">
-              Simplicity
-            </span>
+        <div className="valueCard">
+          <div className="valueIcon">
+            <RiLightbulbLine className="icon" />
           </div>
-          <p className="text-[12px] text-textColor opacity-[.7] py-[1rem] font-semibold ">
-            Things being made beautiful simple are at the heart of everyting we
-            do.
+          <h2 className="valueTitle">Collaboration</h2>
+          <p className="valueDescription">
+            Collaboration is key to our success. We foster teamwork,
+            communication, and mutual respect to achieve great outcomes.
           </p>
         </div>
       </div>
 
-      <div className="card mt-[2rem] flex justify-between bg-blue1Color p-[5rem] rounded-[10px]">
-        <div>
-          <h1 className="text-blue1Color text-[30px] font-bold">
-            Ready to switch a career
-          </h1>
-          <h2 className="text-textColor text-[25px] font-bold">
-            Lets get started
-          </h2>
-          <button className="border-[2px] rounded-[10px] py-[4px] px-[50px] text-[18px] font-semibold text-blue-100 hover:bg-white border-blue3Color">
-            Get Started
-          </button>
-        </div>
+      <div className="ctaSection">
+        <h1 className="ctaTitle">Ready to Take the Next Step?</h1>
+        <h2 className="ctaSubtitle">Join our team and make an impact!</h2>
+        <button className="ctaButton">Get Started</button>
       </div>
     </div>
   );
 };
 
-export default Value;
+export default ValueSection;

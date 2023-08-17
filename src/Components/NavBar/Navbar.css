@@ -1,0 +1,51 @@
+@import "../../index.css";
+
+.header {
+  background: var(--background-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  width: 80%;
+  margin: 2rem auto;
+  color: var(--text-color);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  /* color: var(--background-color); */
+}
+
+.logo strong {
+  color: var(--text-color);
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  /* color: var(--background-color); */
+}
+
+.nav li {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav li:hover {
+  color: var(--text-color);
+}
+.nav li:hover::before {
+  position: absolute;
+  content: "";
+  height: 4px;
+  width: 100%;
+  background: var(--text-color);
+  right: 0;
+  bottom: -10px;
+  border-radius: 4px;
+}

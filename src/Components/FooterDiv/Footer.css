@@ -1,0 +1,57 @@
+@import "../../index.css";
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  width: 90%;
+  margin: 0 auto;
+}
+
+.footerSection {
+  width: 18%;
+  padding: 1rem;
+}
+
+.footerTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.footerDescription {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+.footerSectionTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.footerLinks li {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  list-style-type: none;
+}
+
+.footerEmail {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.footerSocialIcons svg {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.footerIcon:hover {
+  color: var(--primary-color);
+}
